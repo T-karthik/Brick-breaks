@@ -26,6 +26,7 @@ let brickOffsetLeft = 32;
 //Create variables to take score
 let score = 0;
 
+
 //Adding sound files
 var fxbrick = new Audio("sounds/brick.m4a")
 var fxwall = new Audio("sounds/wall.m4a")
@@ -99,8 +100,20 @@ function drawBall(){
 function drawPaddle(){
     ctx.beginPath();
     ctx.rect(paddleX,canvas.height-paddleHeight,paddleWidth,paddleHeight); //centered at (x,y) position with radius r = ballRadius starting at 0 = startAngle, ending at Math.PI*2 = endAngle (in Radians)
-    ctx.fillStyle = 'blue';
-    ctx.fill();
+    // ctx.fillStyle = '';
+    // ctx.fill();
+    if(score>7){
+        ctx.fillStyle = 'orange';
+        ctx.fill();
+    }
+    else if(score>14){
+        ctx.fillStyle = 'black';
+        ctx.fill();
+    }
+    else{
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+    }
     ctx.closePath();
 }
 //Create a function to draw the bricks
